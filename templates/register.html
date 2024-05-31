@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1607523751410-8ce15a864f94?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Register</h1>
+            <span class="subheading">Start Contributing to the Blog!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+       {% if exists == True: %}
+          <span style="color:red;font-style:oblique;">The email already exists.</span>
+       {% endif %}
+       {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+      </div>
+    </div>
+  </div>
+
+{% include "footer.html" %}
+{% endblock %}
